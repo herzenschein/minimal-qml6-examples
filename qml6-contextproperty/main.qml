@@ -3,8 +3,6 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 
-import ContextPropertyExample
-
 // ApplicationWindow comes from Controls
 // and has nice extras, like theme integration.
 ApplicationWindow {

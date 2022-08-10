@@ -1,5 +1,5 @@
-# minimum-qml6-examples
-A collection of minimum QML6 examples.
+# minimal-qml6-examples
+A collection of minimal QML6 examples.
 
 ## Current examples:
 

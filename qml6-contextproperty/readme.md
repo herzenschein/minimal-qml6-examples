@@ -1,6 +1,6 @@
 # QML6 Context Property - Exporting only C++ functions to QML
 
-This is a minimum example to learn how to use [QQmlContext::setContextProperty](https://doc.qt.io/qt-6/qqmlcontext.html#setContextProperty).
+This is a minimal example to learn how to use [QQmlContext::setContextProperty](https://doc.qt.io/qt-6/qqmlcontext.html#setContextProperty).
 
 This project uses the new CMake API for Qt6.
 

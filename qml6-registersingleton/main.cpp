@@ -10,16 +10,14 @@ int main(int argCount, char* argVector[])
 
     QQmlApplicationEngine engine;
 
-    RegisterSingleton mySingletonInstance;
+    //Impossible to instantiate because its constructor is private
+    //RegisterSingleton mySingletonInstance;
 
-    // The hard part is the fifth parameter, the callback.
-    // The lambda simply returns &mySingletonInstance
-    // whenever the singleton is called.
     qmlRegisterSingletonType<RegisterSingleton>
             ("SingletonImport",
              0, 1,
              "MySingleton",
-             [&mySingletonInstance](QQmlEngine *, QJSEngine *) -> QObject * { return &mySingletonInstance; });
+             &RegisterSingleton::getInstance);
 
     engine.load("qrc:/RegisterSingletonExample/main.qml");
 

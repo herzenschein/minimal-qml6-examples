@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 
+// Unlike context properties, an import is required
 import SingletonImport
 
 Dialog {

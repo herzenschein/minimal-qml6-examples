@@ -3,8 +3,9 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 
-// Unlike context properties, an import is required
-import SingletonImport
+//  The singleton import is not required here
+//  because main.qml is not using it directly.
+//import SingletonImport
 
 // ApplicationWindow comes from Controls
 // and has nice extras, like theme integration.

@@ -12,12 +12,10 @@ Dialog {
         anchors.fill: parent
 
         Label {
-            Layout.alignment: Qt.AlignCenter
             text: "Your name is:"
         }
 
         TextField {
-            Layout.alignment: Qt.AlignCenter
             Layout.fillWidth: true
             readOnly: true
             placeholderText: "Your name"
@@ -26,12 +24,10 @@ Dialog {
         }
 
         Label {
-            Layout.alignment: Qt.AlignCenter
             text: "Your age is:"
         }
 
         TextField {
-            Layout.alignment: Qt.AlignCenter
             Layout.fillWidth: true
             readOnly: true
             placeholderText: "Your age"
@@ -40,12 +36,10 @@ Dialog {
         }
 
         Label {
-            Layout.alignment: Qt.AlignCenter
             text: "Your favorite thing is:"
         }
 
         TextField {
-            Layout.alignment: Qt.AlignCenter
             Layout.fillWidth: true
             readOnly: true
             placeholderText: "Your favorite thing"

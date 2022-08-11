@@ -12,20 +12,28 @@ import QtQuick.Layouts
 ApplicationWindow {
     title: "Minimum QML6 Register Singleton Example"
     visible: true
+    minimumWidth: 600
 
     Material.theme: Material.Dark
 
     ColumnLayout {
         anchors.fill: parent
 
+        // Empty item just to fill up space
         Item {
             Layout.fillHeight: true
+        }
+
+        Label {
+            Layout.fillWidth: true
+            Layout.fillHeight: false
+            horizontalAlignment: Qt.AlignHCenter
+            text: "Two different dialogs in two different modules accessing the same data via MySingleton."
         }
 
         Button {
             Layout.fillWidth: true
             Layout.fillHeight: false
-            Layout.alignment: Qt.AlignCenter | Qt.AlignBottom
             text: "Click me to set the Singleton properties"
 
             onClicked: setDialog.open()
@@ -34,15 +42,14 @@ ApplicationWindow {
         Button {
             Layout.fillWidth: true
             Layout.fillHeight: false
-            Layout.alignment: Qt.AlignCenter | Qt.AlignBottom
             text: "Click me to view the Singleton properties"
 
             onClicked: viewDialog.open()
         }
     }
 
-    // Two different dialogs in two different modules
-    // accessing the same data via MySingleton
+    //
+    //
     SetDialog {
         id: setDialog
         parent: Overlay.overlay

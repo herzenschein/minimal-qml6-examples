@@ -3,8 +3,8 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 
-// Unlike context properties, an import is required
-import SingletonImport
+// This import is required to use RegisterSingleton
+import SingletonExample
 
 Dialog {
 
@@ -19,7 +19,7 @@ Dialog {
             Layout.fillWidth: true
             placeholderText: "Your name"
 
-            onTextChanged: MySingleton.name = text
+            onTextChanged: RegisterSingleton.name = text
         }
 
         Label {
@@ -30,7 +30,7 @@ Dialog {
             Layout.fillWidth: true
             placeholderText: "Your age"
 
-            onTextChanged: MySingleton.age = parseInt(text)
+            onTextChanged: RegisterSingleton.age = parseInt(text)
         }
 
         Label {
@@ -41,7 +41,7 @@ Dialog {
             Layout.fillWidth: true
             placeholderText: "Your favorite thing"
 
-            onTextChanged: MySingleton.thing = text
+            onTextChanged: RegisterSingleton.thing = text
         }
     }
 }

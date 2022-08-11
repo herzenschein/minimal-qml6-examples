@@ -3,8 +3,7 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 
-// Unlike context properties, an import is required
-import SingletonImport
+import SingletonExample
 
 Dialog {
 
@@ -20,7 +19,7 @@ Dialog {
             readOnly: true
             placeholderText: "Your name"
 
-            text: MySingleton.name
+            text: RegisterSingleton.name
         }
 
         Label {
@@ -32,7 +31,7 @@ Dialog {
             readOnly: true
             placeholderText: "Your age"
 
-            text: MySingleton.age
+            text: RegisterSingleton.age
         }
 
         Label {
@@ -44,7 +43,7 @@ Dialog {
             readOnly: true
             placeholderText: "Your favorite thing"
 
-            text: MySingleton.thing
+            text: RegisterSingleton.thing
         }
     }
 }

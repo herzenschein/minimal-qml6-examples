@@ -23,14 +23,18 @@ qt_add_executable(${PROJECT_NAME}
 # qrc: + RESOURCE_PREFIX + URI + / + QML_FILES
 # so qrc:/RegisterSingletonExample/main.qml
 qt_add_qml_module(${PROJECT_NAME}
-    URI "RegisterSingletonExample"
-    VERSION 0.1
-    RESOURCE_PREFIX "/"
+    URI "SingletonExample"
+    VERSION 1.0
     QML_FILES
-        "main.qml"
-        "SetDialog.qml"
-        "ViewDialog.qml"
+    "main.qml"
+    "SetDialog.qml"
+    "ViewDialog.qml"
+    SOURCES
+    "main.cpp"
+    "registersingleton.cpp"
+    "registersingleton.hpp"
 )
+
 
 # Finish by linking the necessary Qt libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Quick)

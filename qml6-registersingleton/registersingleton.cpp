@@ -1,6 +1,5 @@
 #include "registersingleton.hpp"
 
-
 const QString &RegisterSingleton::getName() const
 {
     return m_name;

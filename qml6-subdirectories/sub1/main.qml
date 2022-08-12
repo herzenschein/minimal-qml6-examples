@@ -3,6 +3,8 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 
+// I don't get why QtCreator doesn't find these modules,
+// but it works.
 import TextRow
 import Strings
 

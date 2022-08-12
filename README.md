@@ -1,5 +1,10 @@
 # minimal-qml6-examples
-A collection of minimal QML6 examples.
+
+A collection of minimal QML examples.
+
+This repository serves as a learning tool for myself and as easy-to-understand documentation for others.
+
+All examples are built with Qt6 and use the new CMake API for Qt6, even those that use the Qt5 method of doing things.
 
 ## Current examples:
 

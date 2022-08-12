@@ -1,10 +1,10 @@
-# QML6 Context Property - Exporting C++ data to QML
+# QML5 Context Property - Exporting C++ data to QML
 
 This is a minimal example to learn how to use [QQmlContext::setContextProperty](https://doc.qt.io/qt-6/qqmlcontext.html#setContextProperty).
 
-This project uses the new CMake API for Qt6.
+This project uses an old Qt5 method of exporting properties and functions to QML, but it uses the new CMake API for Qt6.
 
-Use context property when you want to export functions from a C++ object to a QML file.
+Use context property when you want to export data from a C++ object to every available QML file.
 
 Important reminders:
 

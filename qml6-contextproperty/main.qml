@@ -6,7 +6,7 @@ import QtQuick.Layouts
 // ApplicationWindow comes from Controls
 // and has nice extras, like theme integration.
 ApplicationWindow {
-    title: "Minimum QML6 Context Property Example"
+    title: "Minimal QML6 Context Property Example"
     visible: true
 
     Material.theme: Material.Dark

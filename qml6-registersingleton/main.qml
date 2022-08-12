@@ -6,7 +6,7 @@ import QtQuick.Layouts
 // ApplicationWindow comes from Controls
 // and has nice extras, like theme integration.
 ApplicationWindow {
-    title: "Minimum QML6 Register Singleton Example"
+    title: "Minimal QML6 Register Singleton Example"
     visible: true
     minimumWidth: 600
 

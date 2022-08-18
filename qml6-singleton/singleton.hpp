@@ -40,34 +40,15 @@ signals:
 
 public:
 
-   /* This is a minimal *unsafe* factory function.
-    * Prefer the safety measures of the fourth example in:
-    * https://doc.qt.io/qt-6/qqmlengine.html#QML_SINGLETON
-    static Singleton *create(QQmlEngine*, QJSEngine*)
-    {
-        Singleton *instance = nullptr;
-        instance = new Singleton;
-        return instance;
-    }
-    */
+    // This is a minimal *unsafe* factory function.
+    // Prefer the safety measures of the fourth example in:
+    // https://doc.qt.io/qt-6/qqmlengine.html#QML_SINGLETON
+    static Singleton *create(QQmlEngine*, QJSEngine*);
 
 private:
-   /* If we were to use the factory function above,
-    * we could hide the default constructor.
+    // If we were to use the factory function above,
+    // we could hide the default constructor.
     Singleton() = default;
-
-    * And probably delete the copy constructor,
-    * since copying it defeats the purpose of a singleton,
-    * and it would be as simple as:
-    * `Singleton copy = Singleton::create();`
-    Singleton(const Singleton&) = delete;
-
-    * Might as well go nuts with this
-    * and make all five special member functions inaccessible.
-    Singleton(Singleton&&) = delete;
-    Singleton operator=(const Singleton&) = delete;
-    Singleton operator=(Singleton&&) = delete;
-    */
 
     // If the constructor were defaulted,
     // it would not be necessary to value initialize here.

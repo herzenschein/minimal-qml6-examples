@@ -3,8 +3,6 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 
-// ApplicationWindow comes from Controls
-// and has nice extras, like theme integration.
 ApplicationWindow {
     title: "Minimal QML6 Pragma Singleton Example"
     visible: true
@@ -15,7 +13,6 @@ ApplicationWindow {
     ColumnLayout {
         anchors.fill: parent
 
-        // Empty item just to fill up space
         Item {
             Layout.fillHeight: true
         }
@@ -44,8 +41,6 @@ ApplicationWindow {
         }
     }
 
-    //
-    //
     SetDialog {
         id: setDialog
         parent: Overlay.overlay

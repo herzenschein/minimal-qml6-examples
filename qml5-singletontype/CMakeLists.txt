@@ -9,6 +9,7 @@ qt_standard_project_setup()
 qt_add_executable(${PROJECT_NAME}
     main.cpp
     singletontype.hpp
+    singletontypecallback.hpp
 )
 
 # The qmlRegisterSingletonType method

@@ -29,18 +29,17 @@ signals:
     void thingChanged();
 
 public:
-
-    // This is a minimal *unsafe* factory function.
+    // This is an optional, minimal, *unsafe* factory function.
     // Prefer the safety measures of the fourth example in:
     // https://doc.qt.io/qt-6/qqmlengine.html#QML_SINGLETON
-    static Singleton *create(QQmlEngine*, QJSEngine*);
+    //static Singleton *create(QQmlEngine*, QJSEngine*);
 
 private:
-    // If we were to use the factory function above,
-    // we could hide the default constructor.
-    Singleton() = default;
+    // If we use the factory function above,
+    // we can hide the default constructor.
+    //Singleton() = default;
 
-    // If the constructor were defaulted,
+    // If the constructor were defaulted as above,
     // it would not be necessary to value initialize here.
     QString m_name = "";
     int m_age = 0;

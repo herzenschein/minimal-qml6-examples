@@ -16,7 +16,8 @@ signals:
     void thingChanged();
 
 public:
-    // This is a minimal *unsafe* factory function.
+    // This is an in-class, minimal, *unsafe* factory function.
+    // With this, it's possible to hide the constructor.
     // Prefer the safety measures of the fourth example in:
     // https://doc.qt.io/qt-6/qqmlengine.html#QML_SINGLETON
     static SingletonInstance *get();
@@ -28,3 +29,12 @@ private:
     int m_age = 0;
     QString m_thing;
 };
+
+// This is an out-of-class, minimal, *unsafe* factory function.
+// With this, it is NOT possible to hide the constructor.
+//static SingletonInstance *get()
+//{
+//    SingletonInstance *instance = nullptr;
+//    instance = new SingletonInstance;
+//    return instance;
+//}

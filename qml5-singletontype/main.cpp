@@ -6,6 +6,10 @@ int main(int argCount, char* argVector[])
 {
     QGuiApplication singletonInstanceApp(argCount, argVector);
 
+    // We do not instantiate SingletonType here,
+    // but there's nothing hindering us from doing this
+    // because the callback must be out-of-class,
+    // and thus requires a public constructor.
     qmlRegisterSingletonType<SingletonType>
             ("SingletonImport",
              1, 0,

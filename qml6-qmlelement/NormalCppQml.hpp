@@ -9,6 +9,7 @@ class NormalCppQml : public QObject
     // The exposed type will be the exact name of the class.
     QML_ELEMENT
 
+    // READ and WRITE can be replaced with MEMBER
     Q_PROPERTY(QString text READ getText WRITE setText NOTIFY textChanged)
 
 public:

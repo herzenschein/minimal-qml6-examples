@@ -42,5 +42,5 @@ qt_add_qml_module(singleton # This automatically creates a singletonplugin targe
     STATIC
 )
 
-# Finish by linking the necessary Qt libraries, including our custom module
+# Finish by linking the necessary Qt libraries, including our custom target/module
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Quick singletonplugin)

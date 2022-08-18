@@ -8,9 +8,9 @@ Use a singleton when you need globally accessible data with a type you do not ne
 
 Important reminders:
 
-* Prefer this over `setContextProperty` and any `qmlRegister*` functions.
+* Prefer this over `setContextProperty()` and any `qmlRegister*()` functions.
 * `Q_INVOKABLE` or slots apply here.
 * Imports are mandatory. This allows to import only where necessary.
-* Singletons made this way require either a defaulted constructor or a static factory function.
+* Singletons made this way require either a defaulted constructor or a static factory function, because they serve as entrypoints for the singleton. Remove both, and the singleton is inaccessible from QML.
 * When using a defaulted constructor, the constructor must be public (it is not truly a C++ singleton, only a QML singleton).
 * When using a static factory function, you may hide/delete special member functions and make it a safe C++ singleton in addition to a QML one.

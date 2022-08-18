@@ -3,7 +3,8 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 
-import SingletonExample
+// This comes from the singleton module we created
+import SingletonImport
 
 Dialog {
 
@@ -11,39 +12,36 @@ Dialog {
         anchors.fill: parent
 
         Label {
-            text: "Your name is:"
+            text: "Type your name here:"
         }
 
         TextField {
             Layout.fillWidth: true
-            readOnly: true
             placeholderText: "Your name"
 
-            text: RegisterSingleton.name
+            onTextChanged: MySingleton.name = text
         }
 
         Label {
-            text: "Your age is:"
+            text: "Type your age here:"
         }
 
         TextField {
             Layout.fillWidth: true
-            readOnly: true
             placeholderText: "Your age"
 
-            text: RegisterSingleton.age
+            onTextChanged: MySingleton.age = parseInt(text)
         }
 
         Label {
-            text: "Your favorite thing is:"
+            text: "Type your favorite thing here:"
         }
 
         TextField {
             Layout.fillWidth: true
-            readOnly: true
             placeholderText: "Your favorite thing"
 
-            text: RegisterSingleton.thing
+            onTextChanged: MySingleton.thing = text
         }
     }
 }

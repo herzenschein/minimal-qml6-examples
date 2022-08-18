@@ -1,11 +1,11 @@
-#include "registersingleton.hpp"
+#include "singleton.hpp"
 
-const QString &RegisterSingleton::getName() const
+const QString &Singleton::getName() const
 {
     return m_name;
 }
 
-void RegisterSingleton::setName(const QString &newName)
+void Singleton::setName(const QString &newName)
 {
     if (m_name == newName)
         return;
@@ -13,12 +13,12 @@ void RegisterSingleton::setName(const QString &newName)
     emit nameChanged();
 }
 
-int RegisterSingleton::getAge() const
+int Singleton::getAge() const
 {
     return m_age;
 }
 
-void RegisterSingleton::setAge(int newAge)
+void Singleton::setAge(int newAge)
 {
     if (m_age == newAge)
         return;
@@ -26,12 +26,12 @@ void RegisterSingleton::setAge(int newAge)
     emit ageChanged();
 }
 
-const QString &RegisterSingleton::getThing() const
+const QString &Singleton::getThing() const
 {
     return m_thing;
 }
 
-void RegisterSingleton::setThing(const QString &newThing)
+void Singleton::setThing(const QString &newThing)
 {
     if (m_thing == newThing)
         return;

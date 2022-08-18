@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.23)
 
 # First argument will be PROJECT_NAME
-project(qml6-registersingleton LANGUAGES CXX)
+project(qml6-singleton LANGUAGES CXX)
 
 # We need to find Qt before we can use
 # the new Qt CMake API
@@ -13,7 +13,7 @@ qt_standard_project_setup()
 # Create a target executable
 qt_add_executable(${PROJECT_NAME}
     main.cpp
-    registersingleton.cpp registersingleton.hpp
+    singleton.cpp singleton.hpp
 )
 
 # This automatically creates resources,
@@ -21,7 +21,7 @@ qt_add_executable(${PROJECT_NAME}
 # If we had a qrc file, we'd put after the first argument.
 # This generates a resource like this:
 # qrc: + RESOURCE_PREFIX + URI + / + QML_FILES
-# so qrc:/RegisterSingletonExample/main.qml
+# so qrc:/SingletonExample/main.qml
 qt_add_qml_module(${PROJECT_NAME}
     URI "SingletonExample"
     VERSION 1.0
@@ -31,10 +31,16 @@ qt_add_qml_module(${PROJECT_NAME}
     "ViewDialog.qml"
     SOURCES
     "main.cpp"
-    "registersingleton.cpp"
-    "registersingleton.hpp"
 )
 
+qt_add_qml_module(singleton # This automatically creates a singletonplugin target.
+    URI "SingletonImport"
+    VERSION 1.0
+    SOURCES
+    "singleton.cpp"
+    "singleton.hpp"
+    STATIC
+)
 
-# Finish by linking the necessary Qt libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Quick)
+# Finish by linking the necessary Qt libraries, including our custom module
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Quick singletonplugin)

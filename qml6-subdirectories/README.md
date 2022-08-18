@@ -1,4 +1,4 @@
-# QML6 Subdirectories - Handle QML and C++ to QML over subdirectories
+# QML6 Subdirectories - Handle QML modules over subdirectories
 
 This is a minimal example to learn how to manage QML files and C++ files exported to QML over multiple subdirectories.
 

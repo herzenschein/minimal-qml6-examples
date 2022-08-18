@@ -15,23 +15,13 @@ class Singleton : public QObject
     QML_NAMED_ELEMENT(MySingleton)
 
     // This, paired with qt_add_qml_module,
-    // marks this class as a singleton,
+    // registers this class as a singleton,
     // so no qmlRegister* functions anymore!
     QML_SINGLETON
 
-    Q_PROPERTY(QString name READ getName WRITE setName NOTIFY nameChanged)
-    Q_PROPERTY(int age READ getAge WRITE setAge NOTIFY ageChanged)
-    Q_PROPERTY(QString thing READ getThing WRITE setThing NOTIFY thingChanged)
-
-public slots:
-    const QString &getName() const;
-    void setName(const QString &newName);
-
-    int getAge() const;
-    void setAge(int newAge);
-
-    const QString &getThing() const;
-    void setThing(const QString &newThing);
+    Q_PROPERTY(QString name MEMBER m_name NOTIFY nameChanged)
+    Q_PROPERTY(int age MEMBER m_age NOTIFY ageChanged)
+    Q_PROPERTY(QString thing MEMBER m_thing NOTIFY thingChanged)
 
 signals:
     void nameChanged();

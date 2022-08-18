@@ -13,7 +13,7 @@ ApplicationWindow {
 
     NormalCppQml {
         id: normal
-        text: "Look, this is exposed via QML_ELEMENT and set from QML"
+        text: "Look, this is exposed via QML_ELEMENT and set from QML!"
     }
 
     // Note the type name

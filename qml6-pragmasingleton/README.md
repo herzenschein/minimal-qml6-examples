@@ -1,10 +1,10 @@
- # QML6 Singleton - Exporting a singleton from QML to QML
+# QML6 Pragma Singleton - QML exclusive singleton
 
-This is a minimal example to learn how to export a QML singleton to QML.
+This is a minimal example to learn how to use [pragma singleton](https://doc.qt.io/QtForMCUs-2.2/qtul-qml-singleton.html).
 
 This project uses the new CMake API for Qt6.
 
-Use a singleton when you need globally accessible data or enums.
+Use a singleton when you need globally accessible data with a type you do not need to explicitly instantiate.
 
 Important reminders:
 

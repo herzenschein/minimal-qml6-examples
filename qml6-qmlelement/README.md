@@ -1,6 +1,10 @@
 # QML6 QML_ELEMENT - Exporting C++ data to QML
 
-This is a minimal example to learn how to export functions and properties from C++ to QML using `QML_ELEMENT` and `QML_NAMED_ELEMENT`.
+This is a minimal example to learn how to export functions and properties from C++ to QML using [QML_ELEMENT](https://doc.qt.io/qt-6/qqmlengine.html#QML_ELEMENT) and [QML_NAMED_ELEMENT](https://doc.qt.io/qt-6/qqmlengine.html#QML_NAMED_ELEMENT).
+
+This project uses the new CMake API for Qt6.
+
+Use this when you want to expose anything from C++ to QML.
 
 Important reminders:
 

@@ -1,4 +1,4 @@
-# QML6 Pragma Singleton - QML exclusive singleton
+# QML6 Pragma Singleton - QML-exclusive singleton
 
 This is a minimal example to learn how to use [pragma singleton](https://doc.qt.io/QtForMCUs-2.2/qtul-qml-singleton.html).
 

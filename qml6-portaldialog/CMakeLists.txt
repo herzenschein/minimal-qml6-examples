@@ -20,3 +20,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 Qt6::Quick
 Qt6::Widgets
 )
+
+include(GNUInstallDirs)
+
+install(FILES ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})

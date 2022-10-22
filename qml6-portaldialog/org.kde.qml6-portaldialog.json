@@ -1,0 +1,27 @@
+{
+   "command": "qml6-portaldialog",
+   "finish-args": [
+      "--share=ipc",
+      "--share=network",
+      "--socket=fallback-x11",
+      "--socket=wayland",
+      "--socket=system-bus",
+      "--device=dri"
+   ],
+   "id": "org.kde.qml6-portaldialog",
+   "modules": [
+      {
+         "buildsystem": "cmake-ninja",
+         "name": "qml6-portaldialog",
+         "sources": [
+            {
+               "type": "dir",
+               "path": "."
+            }
+         ]
+      }
+   ],
+   "runtime": "org.kde.Platform",
+   "runtime-version": "6.3",
+   "sdk": "org.kde.Sdk"
+}

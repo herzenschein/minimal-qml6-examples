@@ -16,3 +16,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 	Qt5::Quick
 	Qt5::Widgets
 )
+
+include(GNUInstallDirs)
+
+install(FILES ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})

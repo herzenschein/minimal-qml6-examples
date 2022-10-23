@@ -4,17 +4,14 @@ STILL A PROTOTYPE - DOESN'T WORK CURRENTLY
 
 This is a minimal example to learn how to set up Conan so as to fetch and build Qt.
 
-This project uses the new CMake API for Qt6.
+This project uses the new CMake API for Qt6 and Conan.
 
 Use this whenever you want to automatically manage your app's dependencies.
 
 Requirements:
 
-* conanfile.txt
-* installing Qt's build dependencies
-* no manual library linking to Qt, use the convenience variable ${CONAN_LIBS} instead
-* conan_basic_setup()
-* find_package is still needed for the new CMake Qt6 API
+* time to compile
+* dependencies for Qt's dependencies
 
 Using Conan requires minimal changes to code, but some preparation before building your project.
 
@@ -27,24 +24,17 @@ source bin/active.sh
 
 pip install conan
 
-# If using anything over C++11, set this
-conan profile update settings.compiler.libcxx=libstdc++11 default
-# Set the install folder to our future out-of-tree build/ folder
-# Allow Conan to query your system to install needed dependencies
-# Let Conan use sudo to install needed dependencies
-# Whatever cannot be installed, build it
-conan install . --install-folder build --build missing -c tools.system.package_manager:mode=install -c tools.system.package_manager:sudo=True
 cmake -B build
 cmake --build build
 DESTDIR=appdir cmake --install build
 ```
 
-To build with ninja instead of make, use `CONAN_CMAKE_GENERATOR=Ninja`.
+To build with ninja instead of make for improved compilation times, use `-D CMAKE_GENERATOR=Ninja`.
 
-Compiling Qt6 from scratch should probably take half an hour, depending on your hardware.
+Compiling Qt6 from scratch typically lasts half an hour, but with QtQuick (qtdeclarative) it takes longer.
 
 If you see the following error:
 
 `Can't locate xxxx in @INC`
 
-Then a package is missing and, in the case of Qt, it's likely a Perl module, install it from your distro manually if needed.
+Then a package is missing and, in this case, it's likely a Perl module, install it from your distro manually if needed.

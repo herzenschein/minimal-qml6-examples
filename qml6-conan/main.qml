@@ -1,10 +1,11 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Controls.Material
 
 ApplicationWindow {
     visible: true
 
-    Text {
+    Button {
         text: "This was built using Conan!"
         anchors.centerIn: parent
     }

@@ -1,13 +1,22 @@
 cmake_minimum_required(VERSION 3.20)
 
 project(qml6-conan)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
+list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 
-find_package(Qt6 REQUIRED COMPONENTS
-    Quick
+file(DOWNLOAD "https://raw.githubusercontent.com/conan-io/cmake-conan/0.18.1/conan.cmake" "${CMAKE_BINARY_DIR}/conan.cmake")
+include(${CMAKE_BINARY_DIR}/conan.cmake)
+
+conan_cmake_configure(REQUIRES qt/6.3.1 cmake/3.24.2 GENERATORS cmake_find_package)
+conan_cmake_autodetect(settings)
+conan_cmake_install(PATH_OR_REFERENCE .
+                    BUILD missing
+                    REMOTE conancenter
+                    SETTINGS ${settings}
+                    OPTIONS qt:qtshadertools=True qt:qtdeclarative=True
 )
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
+find_package(Qt6 REQUIRED COMPONENTS Gui Core)
 
 qt_standard_project_setup()
 
@@ -22,7 +31,7 @@ qt_add_qml_module(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    ${CONAN_LIBS}
+    Qt6::Gui Qt6::Core
 )
 
 include(GNUInstallDirs)

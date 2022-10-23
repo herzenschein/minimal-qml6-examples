@@ -1,5 +1,7 @@
 # QML6 with Conan - Qt shipped via package management
 
+STILL A PROTOTYPE - DOESN'T WORK CURRENTLY
+
 This is a minimal example to learn how to set up Conan so as to fetch and build Qt.
 
 This project uses the new CMake API for Qt6.

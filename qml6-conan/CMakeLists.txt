@@ -26,7 +26,10 @@ conan_cmake_install(
     BUILD missing
     REMOTE conancenter
     SETTINGS ${settings}
-    OPTIONS qt:qtshadertools=True qt:qtdeclarative=True
+    OPTIONS
+        qt:shared=True
+        qt:qtshadertools=True
+        qt:qtdeclarative=True
 )
 
 # This way, we can use normal find_package calls.

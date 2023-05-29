@@ -24,7 +24,7 @@ QML6:
 * [QML6 Pragma Singleton - QML-exclusive singleton](qml6-pragmasingleton)
 * [QML6 Subdirectories - Handle QML modules over subdirectories](qml6-subdirectories)
 * [QML6 using the Flatpak portal dialog](qml6-portaldialog)
-* [QML6 using Conan]
+* [QML6 using Conan](qml6-conan)
 
 Planned:
 

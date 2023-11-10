@@ -10,11 +10,13 @@ env:
   BUILD_TYPE: Release
 
 jobs:
+  install-qt6:
+    uses: herzenschein/minimal-qml6-examples/.github/workflows/install-qt6.yml@main
+
   qml5-contextproperty:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: herzenschein/minimal-qml6-examples/.github/workflows/install-qt6.yml@main
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-contextproperty/
@@ -26,7 +28,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: herzenschein/minimal-qml6-examples/.github/workflows/install-qt6.yml@main
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-qmlelement/

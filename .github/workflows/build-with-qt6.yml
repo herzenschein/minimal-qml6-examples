@@ -9,28 +9,22 @@ on:
 env:
   BUILD_TYPE: Release
 
-jobs:
-  install-qt6:
-    runs-on: ubuntu-latest
-    outputs:
-      qt6runner: ${{ runner.name }}
-    steps:
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v3
-        with:
-          aqtversion: '==3.1.*'
-          version: '6.6.0'
-          host: 'linux'
-          target: 'desktop'
-          arch: 'gcc_64'
-          cache: 'true'
-          archives: 'qtdeclarative qtbase icu'
-
+jobs:        
   build-all:
-    runs-on: qt6runner
-    needs: install-qt6
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        aqtversion: '==3.1.*'
+        version: '6.6.0'
+        host: 'linux'
+        target: 'desktop'
+        arch: 'gcc_64'
+        cache: 'true'
+        archives: 'qtdeclarative qtbase icu'
     
     - name: Configure qml5-contextproperty
       run: cmake -B ${{github.workspace}}/build/qml5-contextproperty -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-contextproperty/

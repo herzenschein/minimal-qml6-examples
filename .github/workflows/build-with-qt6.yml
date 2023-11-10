@@ -1,4 +1,4 @@
-name: CMake on a single platform
+name: Build a project with Qt6
 
 on:
   push:
@@ -14,18 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        version: '6.6'
-        host: 'linux'
-        target: 'desktop'
-        dir: '${{ github.workspace }}/example/'
-        install-deps: 'true'
-        cache: 'true'
-        archives: 'qtbase qtdeclarative'
-
+    - uses: herzenschein/minimal-qml6-examples/.github/workflows/install-qt6.yml@main
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-contextproperty/
@@ -33,25 +22,11 @@ jobs:
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
-#    - name: Test
-#      working-directory: ${{github.workspace}}/build
-#      run: ctest -C ${{env.BUILD_TYPE}}
-
   qml6-qmlelement:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        version: '6.4'
-        host: 'linux'
-        target: 'desktop'
-        dir: '${{ github.workspace }}/example/'
-        install-deps: 'true'
-        cache: 'true'
-        archives: 'qtbase qtdeclarative'
+    - uses: herzenschein/minimal-qml6-examples/.github/workflows/install-qt6.yml@main
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-qmlelement/

@@ -21,6 +21,7 @@ jobs:
         host: 'linux'
         target: 'desktop'
         arch: 'gcc_64'
+        cache: 'true'
         archives: 'qtdeclarative qtbase'
         
   qml5-contextproperty:

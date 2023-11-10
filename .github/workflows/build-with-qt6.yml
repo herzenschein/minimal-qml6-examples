@@ -11,7 +11,7 @@ env:
 
 jobs:
   install-qt6:
-    uses: herzenschein/minimal-qml6-examples/.github/workflows/install-qt6.yml@main
+    uses: .github/workflows/install-qt6.yml@main
 
   qml5-contextproperty:
     runs-on: ubuntu-latest

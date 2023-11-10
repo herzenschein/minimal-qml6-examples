@@ -27,7 +27,7 @@ jobs:
           archives: 'qtdeclarative qtbase icu'
 
   build-all:
-    runs-on: ${{needs.get-runner.outputs.qt6runner}}
+    runs-on: qt6runner
     needs: install-qt6
     steps:
     - uses: actions/checkout@v3

@@ -10,8 +10,9 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
-        version: '6.6'
+        version: '6.5'
         host: 'linux'
         target: 'desktop'
         install-deps: 'true'
         cache: 'true'
+        archives: 'qtbase qtdeclarative'

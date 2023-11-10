@@ -13,6 +13,5 @@ jobs:
         version: '6.6'
         host: 'linux'
         target: 'desktop'
-        dir: '${{ github.workspace }}/example/'
         install-deps: 'true'
         cache: 'true'

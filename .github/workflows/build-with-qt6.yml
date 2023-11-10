@@ -24,7 +24,7 @@ jobs:
         target: 'desktop'
         arch: 'gcc_64'
         cache: 'true'
-        archives: 'qtdeclarative qtbase'
+        archives: 'qtdeclarative qtbase icu'
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-contextproperty/
@@ -46,7 +46,7 @@ jobs:
         target: 'desktop'
         arch: 'gcc_64'
         cache: 'true'
-        archives: 'qtdeclarative qtbase'
+        archives: 'qtdeclarative qtbase icu'
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-singletoninstance/
@@ -68,7 +68,7 @@ jobs:
         target: 'desktop'
         arch: 'gcc_64'
         cache: 'true'
-        archives: 'qtdeclarative qtbase'
+        archives: 'qtdeclarative qtbase icu'
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-singletontype/
@@ -90,7 +90,7 @@ jobs:
         target: 'desktop'
         arch: 'gcc_64'
         cache: 'true'
-        archives: 'qtdeclarative qtbase'
+        archives: 'qtdeclarative qtbase icu'
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-pragmasingleton/
@@ -113,7 +113,7 @@ jobs:
         target: 'desktop'
         arch: 'gcc_64'
         cache: 'true'
-        archives: 'qtdeclarative qtbase'
+        archives: 'qtdeclarative qtbase icu'
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-qmlelement/
@@ -135,7 +135,7 @@ jobs:
         target: 'desktop'
         arch: 'gcc_64'
         cache: 'true'
-        archives: 'qtdeclarative qtbase'
+        archives: 'qtdeclarative qtbase icu'
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-singleton/
@@ -157,7 +157,7 @@ jobs:
         target: 'desktop'
         arch: 'gcc_64'
         cache: 'true'
-        archives: 'qtdeclarative qtbase'
+        archives: 'qtdeclarative qtbase icu'
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-subdirectories/

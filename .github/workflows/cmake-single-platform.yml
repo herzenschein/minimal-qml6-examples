@@ -18,7 +18,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
-        version: '6.6'
+        version: '6.5'
         host: 'linux'
         target: 'desktop'
         dir: '${{ github.workspace }}/example/'
@@ -44,7 +44,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
-        version: '6.6'
+        version: '6.5'
         host: 'linux'
         target: 'desktop'
         dir: '${{ github.workspace }}/example/'

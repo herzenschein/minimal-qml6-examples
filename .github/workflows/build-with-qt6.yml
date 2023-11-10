@@ -10,7 +10,7 @@ env:
   BUILD_TYPE: Release
 
 jobs:        
-  qml5-contextproperty:
+  build-all:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -27,140 +27,43 @@ jobs:
         archives: 'qtdeclarative qtbase icu'
     
     - name: Configure
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-contextproperty/
+      run: cmake -B ${{github.workspace}}/build/qml5-contextproperty -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-contextproperty/
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-
-  qml5-singletoninstance:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        aqtversion: '==3.1.*'
-        version: '6.6.0'
-        host: 'linux'
-        target: 'desktop'
-        arch: 'gcc_64'
-        cache: 'true'
-        archives: 'qtdeclarative qtbase icu'
+      run: cmake --build ${{github.workspace}}/build/qml5-contextproperty --config ${{env.BUILD_TYPE}}
     
     - name: Configure
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-singletoninstance/
+      run: cmake -B ${{github.workspace}}/build/qml5-singletoninstance -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-singletoninstance/
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-
-  qml5-singletontype:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        aqtversion: '==3.1.*'
-        version: '6.6.0'
-        host: 'linux'
-        target: 'desktop'
-        arch: 'gcc_64'
-        cache: 'true'
-        archives: 'qtdeclarative qtbase icu'
+      run: cmake --build ${{github.workspace}}/build/qml5-singletoninstance --config ${{env.BUILD_TYPE}}
     
     - name: Configure
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-singletontype/
+      run: cmake -B ${{github.workspace}}/build/qml5-singletontype -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-singletontype/
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-
-  qml6-pragmasingleton:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        aqtversion: '==3.1.*'
-        version: '6.6.0'
-        host: 'linux'
-        target: 'desktop'
-        arch: 'gcc_64'
-        cache: 'true'
-        archives: 'qtdeclarative qtbase icu'
+      run: cmake --build ${{github.workspace}}/build/qml5-singletontype --config ${{env.BUILD_TYPE}}
     
     - name: Configure
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-pragmasingleton/
+      run: cmake -B ${{github.workspace}}/build/qml6-pragmasingleton -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-pragmasingleton/
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-
-
-  qml6-qmlelement:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        aqtversion: '==3.1.*'
-        version: '6.6.0'
-        host: 'linux'
-        target: 'desktop'
-        arch: 'gcc_64'
-        cache: 'true'
-        archives: 'qtdeclarative qtbase icu'
+      run: cmake --build ${{github.workspace}}/build/qml6-pragmasingleton --config ${{env.BUILD_TYPE}}
     
     - name: Configure
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-qmlelement/
+      run: cmake -B ${{github.workspace}}/build/qml6-qmlelement -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-qmlelement/
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-
-  qml6-singleton:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        aqtversion: '==3.1.*'
-        version: '6.6.0'
-        host: 'linux'
-        target: 'desktop'
-        arch: 'gcc_64'
-        cache: 'true'
-        archives: 'qtdeclarative qtbase icu'
-    
+      run: cmake --build ${{github.workspace}}/build/qml6-qmlelement --config ${{env.BUILD_TYPE}}
+   
     - name: Configure
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-singleton/
+      run: cmake -B ${{github.workspace}}/build/qml6-singleton -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-singleton/
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/build/qml6-singleton --config ${{env.BUILD_TYPE}}
 
-  qml6-subdirectories:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v3
-      with:
-        aqtversion: '==3.1.*'
-        version: '6.6.0'
-        host: 'linux'
-        target: 'desktop'
-        arch: 'gcc_64'
-        cache: 'true'
-        archives: 'qtdeclarative qtbase icu'
-    
     - name: Configure
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-subdirectories/
+      run: cmake -B ${{github.workspace}}/build/qml6-subdirectories -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-subdirectories/
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}

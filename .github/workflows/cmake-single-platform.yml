@@ -24,6 +24,8 @@ jobs:
         dir: '${{ github.workspace }}/example/'
         install-deps: 'true'
         cache: 'true'
+        archives: 'qtbase qtdeclarative'
+
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-contextproperty/
@@ -49,6 +51,7 @@ jobs:
         dir: '${{ github.workspace }}/example/'
         install-deps: 'true'
         cache: 'true'
+        archives: 'qtbase qtdeclarative'
     
     - name: Configure
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-qmlelement/

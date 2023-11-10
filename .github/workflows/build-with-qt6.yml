@@ -11,8 +11,18 @@ env:
 
 jobs:
   install-qt6:
-    uses: ./.github/workflows/install-qt6.yml
-
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        aqtversion: '==3.1.*'
+        version: '6.6.0'
+        host: 'linux'
+        target: 'desktop'
+        arch: 'gcc_64'
+        archives: 'qtdeclarative qtbase'
+        
   qml5-contextproperty:
     needs: install-qt6
     runs-on: ubuntu-latest

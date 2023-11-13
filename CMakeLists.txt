@@ -2,7 +2,13 @@ cmake_minimum_required(VERSION 3.25)
 project(minimal-qml6-examples)
 
 add_subdirectory(qml5-contextproperty)
-add_subdirectory(qml5-portaldialog)
+
+option(BUILD_QML5PORTAL OFF)
+if(BUILD_QML5PORTAL)
+    add_subdirectory(qml5-portaldialog)
+endif()
+
+
 add_subdirectory(qml5-singletoninstance)
 add_subdirectory(qml5-singletontype)
 

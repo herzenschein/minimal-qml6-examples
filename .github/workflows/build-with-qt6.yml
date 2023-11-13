@@ -26,44 +26,5 @@ jobs:
         cache: 'true'
         archives: 'qtdeclarative qtbase icu'
     
-    - name: Configure qml5-contextproperty
-      run: cmake -B ${{github.workspace}}/build/qml5-contextproperty -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-contextproperty/
-
-    - name: Build qml5-contextproperty
-      run: cmake --build ${{github.workspace}}/build/qml5-contextproperty --config ${{env.BUILD_TYPE}}
-    
-    - name: Configure qml5-singletoninstance
-      run: cmake -B ${{github.workspace}}/build/qml5-singletoninstance -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-singletoninstance/
-
-    - name: Build qml5-singletoninstance
-      run: cmake --build ${{github.workspace}}/build/qml5-singletoninstance --config ${{env.BUILD_TYPE}}
-    
-    - name: Configure qml5-singletontype
-      run: cmake -B ${{github.workspace}}/build/qml5-singletontype -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml5-singletontype/
-
-    - name: Build qml5-singletontype
-      run: cmake --build ${{github.workspace}}/build/qml5-singletontype --config ${{env.BUILD_TYPE}}
-    
-    - name: Configure qml6-pragmasingleton
-      run: cmake -B ${{github.workspace}}/build/qml6-pragmasingleton -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-pragmasingleton/
-
-    - name: Build qml6-pragmasingleton
-      run: cmake --build ${{github.workspace}}/build/qml6-pragmasingleton --config ${{env.BUILD_TYPE}}
-    
-    - name: Configure qml6-qmlelement
-      run: cmake -B ${{github.workspace}}/build/qml6-qmlelement -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-qmlelement/
-
-    - name: Build qml6-qmlelement
-      run: cmake --build ${{github.workspace}}/build/qml6-qmlelement --config ${{env.BUILD_TYPE}}
-   
-    - name: Configure qml6-singleton
-      run: cmake -B ${{github.workspace}}/build/qml6-singleton -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-singleton/
-
-    - name: Build qml6-singleton
-      run: cmake --build ${{github.workspace}}/build/qml6-singleton --config ${{env.BUILD_TYPE}}
-
-    - name: Configure qml6-subdirectories
-      run: cmake -B ${{github.workspace}}/build/qml6-subdirectories -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S qml6-subdirectories/
-
-    - name: Build qml6-subdirectories
-      run: cmake --build ${{github.workspace}}/build/qml6-subdirectories --config ${{env.BUILD_TYPE}}
+    - name: Build All
+      run: cmake -B ${{github.workspace}}/build/ -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}

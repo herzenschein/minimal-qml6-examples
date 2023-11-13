@@ -46,6 +46,7 @@ qt_add_executable(${PROJECT_NAME}
 qt_add_qml_module(${PROJECT_NAME}
     URI "conan"
     VERSION 1.0
+    RESOURCE_PREFIX "/"
     QML_FILES "main.qml"
 )
 

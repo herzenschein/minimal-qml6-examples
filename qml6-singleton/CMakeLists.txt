@@ -25,6 +25,7 @@ qt_add_executable(${PROJECT_NAME}
 qt_add_qml_module(${PROJECT_NAME}
     URI "SingletonExample"
     VERSION 1.0
+    RESOURCE_PREFIX "/"
     QML_FILES
     "main.qml"
     "SetDialog.qml"
@@ -36,6 +37,8 @@ qt_add_qml_module(${PROJECT_NAME}
 qt_add_qml_module(singleton # This automatically creates a singletonplugin target.
     URI "SingletonImport"
     VERSION 1.0
+    RESOURCE_PREFIX "/"
+    OUTPUT_DIRECTORY "SingletonImport"
     SOURCES
     "singleton.cpp"
     "singleton.hpp"

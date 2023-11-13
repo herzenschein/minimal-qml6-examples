@@ -15,6 +15,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 qt_add_qml_module(main
     URI "Main"
     VERSION 1.0
+    RESOURCE_PREFIX "/"
     # OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml
     # OUTPUT_DIRECTORY "Main"
     QML_FILES "main.qml"

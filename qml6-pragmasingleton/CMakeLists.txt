@@ -27,6 +27,7 @@ set_source_files_properties(PragmaSingleton.qml PROPERTIES QT_QML_SINGLETON_TYPE
 qt_add_qml_module(${PROJECT_NAME}
     URI "PragmaSingletonExample"
     VERSION 1.0
+    RESOURCE_PREFIX "/"
     QML_FILES
     "main.qml"
     "SetDialog.qml"

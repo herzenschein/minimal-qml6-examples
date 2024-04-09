@@ -18,7 +18,12 @@ int main(int argCounter, char* argVector[])
     // Or we can export entire types and their respective properties.
     engine.rootContext()->setContextProperty("MyCPPFunctions", &myFunctionsInstance);
 
-    engine.load("qrc:/ContextPropertyExample/main.qml");
+    // This method simply loads the file and is unnecessarily verbose:
+    // engine.load("qrc:/qt/qml/com/example/contextproperty/Main.qml");
+
+    // Instead use the following method, which loads a module directly
+    // instead and is much less verbose:
+    engine.loadFromModule("com.example.contextproperty", "Main");
 
     contextPropertyApp.exec();
 }

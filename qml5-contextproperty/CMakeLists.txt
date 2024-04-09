@@ -10,10 +10,13 @@ find_package(Qt6 REQUIRED COMPONENTS Quick)
 # Autoconfigures AUTOMOC, AUTORCC, AUTOUIC etc.
 qt_standard_project_setup()
 
+# This accepts and silences the policy that uses the new RESOURCE_PREFIX
+# /qt/qml, which automatically adds all files to the import path.
+qt_policy(SET QTP0001 NEW)
+
 # Create a target executable
 qt_add_executable(${PROJECT_NAME}
     main.cpp
-    MyFunctionsFromCPPToQml.hpp
 )
 
 # This automatically creates resources,
@@ -21,13 +24,14 @@ qt_add_executable(${PROJECT_NAME}
 # If we had a qrc file, we'd put after the first argument.
 # This generates a resource like this:
 # qrc: + RESOURCE_PREFIX + URI + / + QML_FILES
-# so qrc:/ContextPropertyExample/main.qml
+# so qrc:/qt/qml/com/example/contextproperty/Main.qml
 qt_add_qml_module(${PROJECT_NAME}
-    URI "ContextPropertyExample"
+    URI "com.example.contextproperty"
     VERSION 0.1
-    RESOURCE_PREFIX "/"
     QML_FILES
-        "main.qml"
+        "Main.qml"
+    SOURCES
+        "MyFunctionsFromCPPToQml.hpp"
 )
 
 # Finish by linking the necessary Qt libraries

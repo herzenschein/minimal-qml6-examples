@@ -8,9 +8,9 @@ int main(int argCounter, char* argVector[])
 {
     QGuiApplication contextPropertyApp(argCounter, argVector);
 
-    QQmlApplicationEngine engine;
-
     MyFunctionsFromCPPToQml myFunctionsInstance;
+
+    QQmlApplicationEngine engine;
 
     // We can arbitrarily export individual properties globally.
     // By convention, it starts with an underscore.

@@ -6,28 +6,41 @@ find_package(Qt6 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup()
 
-qt_add_executable(${PROJECT_NAME}
-    main.cpp
-    singletoninstance.cpp
-    singletoninstance.hpp
+qt_policy(SET QTP0001 NEW)
+
+qt_add_executable(${PROJECT_NAME})
+
+target_sources(${PROJECT_NAME}
+    PRIVATE
+    "main.cpp"
 )
 
-# The qmlRegisterSingletonInstance method
-# does not take advantage of qt_add_qml_module.
-# If we didn't use this Qt6 feature here,
-# we'd have to use qrc files and would end up with:
-# SingletonImport in C++
-# main.qml in qrc
-# qrc in CMakeLists.txt
-# What a mess.
 qt_add_qml_module(${PROJECT_NAME}
-    URI "Main"
+    URI "com.example.singletoninstance"
     VERSION 1.0
-    RESOURCE_PREFIX "/"
     QML_FILES
-    "main.qml"
-    "SetDialog.qml"
-    "ViewDialog.qml"
+    "Main.qml"
+    SOURCES
+    "singletoninstance.cpp"
+    "singletoninstance.hpp"
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Quick)
+target_link_libraries(${PROJECT_NAME}
+    PRIVATE
+    Qt6::Quick
+    singletoninstance-dialogs
+)
+
+install(TARGETS ${PROJECT_NAME}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+
+qt_generate_deploy_qml_app_script(
+    TARGET ${PROJECT_NAME}
+    OUTPUT_SCRIPT deployScript
+)
+
+install(SCRIPT ${deployScript})
+
+add_subdirectory(qml)

@@ -12,7 +12,8 @@ int main(int argCount, char* argVector[])
                                  SingletonInstance::get()); // or simply get() if out of class.
 
     QQmlApplicationEngine engine;
-    engine.load("qrc:/Main/main.qml");
+    // engine.load("qrc:/qt/qml/com/example/singletoninstance/Main.qml");
+    engine.loadFromModule("com.example.singletoninstance", "Main");
 
     singletonInstanceApp.exec();
 }

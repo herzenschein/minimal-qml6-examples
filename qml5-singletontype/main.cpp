@@ -17,7 +17,7 @@ int main(int argCount, char* argVector[])
              singletonTypeCallback);
 
     QQmlApplicationEngine engine;
-    engine.load("qrc:/Main/main.qml");
+    engine.loadFromModule("com.example.singletontype", "Main");
 
     singletonInstanceApp.exec();
 }

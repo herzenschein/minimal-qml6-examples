@@ -1,13 +1,13 @@
 import QtQuick
+import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Material
-import QtQuick.Layouts
 
 // This comes from qmlRegisterSingletonType()
 import SingletonImport
 
 Dialog {
-
+    id: root
     ColumnLayout {
         anchors.fill: parent
 
@@ -42,6 +42,11 @@ Dialog {
             placeholderText: "Your favorite thing"
 
             onTextChanged: SingletonType.thing = text
+        }
+        Button {
+            Layout.alignment: Qt.AlignCenter
+            text: "Confirm"
+            onClicked: root.close()
         }
     }
 }

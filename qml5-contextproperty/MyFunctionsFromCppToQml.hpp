@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QString>
 
-class MyFunctionsFromCPPToQml : public QObject
+class MyFunctionsFromCppToQml : public QObject
 {
     Q_OBJECT
 

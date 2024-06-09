@@ -9,6 +9,9 @@ ApplicationWindow {
     title: _windowtitle
     visible: true
 
+    width: 500
+    height: 500
+
     Material.theme: Material.Dark
 
     ColumnLayout {
@@ -17,18 +20,18 @@ ApplicationWindow {
         Button {
             Layout.alignment: Qt.AlignCenter
 
-            text: MyCPPFunctions.normalString()
+            text: MyCppFunctions.normalString()
             onClicked: {
-                MyCPPFunctions.normalMethod()
+                MyCppFunctions.normalMethod()
             }
         }
 
         Button {
             Layout.alignment: Qt.AlignCenter
 
-            text: MyCPPFunctions.publicString()
+            text: MyCppFunctions.publicString()
             onClicked: {
-                MyCPPFunctions.publicSlot()
+                MyCppFunctions.publicSlot()
             }
         }
 
@@ -37,15 +40,15 @@ ApplicationWindow {
 
             text: {
                 // JS ternary operator
-                MyCPPFunctions.privateString
-                ? MyCPPFunctions.privateString()
+                MyCppFunctions.privateString
+                ? MyCppFunctions.privateString()
                 : "This private string is inaccessible"
             }
 
             onClicked: {
                 // JS ternary operator
-                MyCPPFunctions.privateSlot
-                ? MyCPPFunctions.privateSlot()
+                MyCppFunctions.privateSlot
+                ? MyCppFunctions.privateSlot()
                 : console.info("This private slot is inaccessible")
             }
         }

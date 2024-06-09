@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.23)
 
 # First argument will be PROJECT_NAME
-project(qml6-contextproperty LANGUAGES CXX)
+project(qml5-contextproperty LANGUAGES CXX)
 
 # We need to find Qt before we can use
 # the new Qt CMake API
@@ -15,8 +15,11 @@ qt_standard_project_setup()
 qt_policy(SET QTP0001 NEW)
 
 # Create a target executable
-qt_add_executable(${PROJECT_NAME}
-    main.cpp
+qt_add_executable(${PROJECT_NAME})
+
+target_sources(${PROJECT_NAME}
+    PRIVATE
+    "main.cpp"
 )
 
 # This automatically creates resources,
@@ -31,8 +34,23 @@ qt_add_qml_module(${PROJECT_NAME}
     QML_FILES
         "Main.qml"
     SOURCES
-        "MyFunctionsFromCPPToQml.hpp"
+        "MyFunctionsFromCppToQml.hpp"
 )
 
 # Finish by linking the necessary Qt libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt::Quick)
+target_link_libraries(${PROJECT_NAME}
+    PRIVATE
+    Qt::Quick
+)
+
+install(TARGETS ${PROJECT_NAME}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+
+qt_generate_deploy_qml_app_script(
+    TARGET ${PROJECT_NAME}
+    OUTPUT_SCRIPT deployScript
+)
+
+install(SCRIPT ${deployScript})

@@ -2,13 +2,13 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
-#include "MyFunctionsFromCPPToQml.hpp"
+#include "MyFunctionsFromCppToQml.hpp"
 
 int main(int argCounter, char* argVector[])
 {
     QGuiApplication contextPropertyApp(argCounter, argVector);
 
-    MyFunctionsFromCPPToQml myFunctionsInstance;
+    MyFunctionsFromCppToQml myFunctionsInstance;
 
     QQmlApplicationEngine engine;
 
@@ -16,7 +16,7 @@ int main(int argCounter, char* argVector[])
     // By convention, it starts with an underscore.
     engine.rootContext()->setContextProperty("_windowtitle", QString("Minimal QML6 Context Property Example"));
     // Or we can export entire types and their respective properties.
-    engine.rootContext()->setContextProperty("MyCPPFunctions", &myFunctionsInstance);
+    engine.rootContext()->setContextProperty("MyCppFunctions", &myFunctionsInstance);
 
     // This method simply loads the file and is unnecessarily verbose:
     // engine.load("qrc:/qt/qml/com/example/contextproperty/Main.qml");

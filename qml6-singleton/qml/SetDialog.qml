@@ -1,50 +1,51 @@
 import QtQuick
+import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Material
-import QtQuick.Layouts
 
-// This comes from the singleton module we created
-import SingletonImport
+import com.example.singleton.singletons
 
 Dialog {
-
+    id: root
     ColumnLayout {
         anchors.fill: parent
 
         Label {
-            text: "Your name is:"
+            text: "Type your name here:"
         }
 
         TextField {
             Layout.fillWidth: true
-            readOnly: true
             placeholderText: "Your name"
 
-            text: MySingleton.name
+            onTextChanged: MySingleton.name = text
         }
 
         Label {
-            text: "Your age is:"
+            text: "Type your age here:"
         }
 
         TextField {
             Layout.fillWidth: true
-            readOnly: true
             placeholderText: "Your age"
 
-            text: MySingleton.age
+            onTextChanged: MySingleton.age = parseInt(text)
         }
 
         Label {
-            text: "Your favorite thing is:"
+            text: "Type your favorite thing here:"
         }
 
         TextField {
             Layout.fillWidth: true
-            readOnly: true
             placeholderText: "Your favorite thing"
 
-            text: MySingleton.thing
+            onTextChanged: MySingleton.thing = text
+        }
+        Button {
+            Layout.alignment: Qt.AlignCenter
+            text: "Confirm"
+            onClicked: root.close()
         }
     }
 }

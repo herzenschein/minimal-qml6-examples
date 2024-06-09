@@ -10,10 +10,14 @@ find_package(Qt6 REQUIRED COMPONENTS Quick)
 # Autoconfigures AUTOMOC, AUTORCC, AUTOUIC etc.
 qt_standard_project_setup()
 
+qt_policy(SET QTP0001 NEW)
+
 # Create a target executable
-qt_add_executable(${PROJECT_NAME}
-    main.cpp
-    singleton.cpp singleton.hpp
+qt_add_executable(${PROJECT_NAME})
+
+target_sources(${PROJECT_NAME}
+    PRIVATE
+    "main.cpp"
 )
 
 # This automatically creates resources,
@@ -21,29 +25,31 @@ qt_add_executable(${PROJECT_NAME}
 # If we had a qrc file, we'd put after the first argument.
 # This generates a resource like this:
 # qrc: + RESOURCE_PREFIX + URI + / + QML_FILES
-# so qrc:/SingletonExample/main.qml
+# so qrc:/qt/qml/com/example/singleton/Main.qml
 qt_add_qml_module(${PROJECT_NAME}
-    URI "SingletonExample"
+    URI "com.example.singleton"
     VERSION 1.0
-    RESOURCE_PREFIX "/"
     QML_FILES
-    "main.qml"
-    "SetDialog.qml"
-    "ViewDialog.qml"
-    SOURCES
-    "main.cpp"
-)
-
-qt_add_qml_module(singleton # This automatically creates a singletonplugin target.
-    URI "SingletonImport"
-    VERSION 1.0
-    RESOURCE_PREFIX "/"
-    OUTPUT_DIRECTORY "SingletonImport"
-    SOURCES
-    "singleton.cpp"
-    "singleton.hpp"
-    STATIC
+    "Main.qml"
 )
 
 # Finish by linking the necessary Qt libraries, including our custom target/module
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt6::Quick singletonplugin)
+target_link_libraries(${PROJECT_NAME}
+    PRIVATE
+    Qt6::Quick
+    singleton-singletons
+)
+
+install(TARGETS ${PROJECT_NAME}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+
+qt_generate_deploy_qml_app_script(
+    TARGET ${PROJECT_NAME}
+    OUTPUT_SCRIPT deployScript
+)
+
+install(SCRIPT ${deployScript})
+
+add_subdirectory(qml)

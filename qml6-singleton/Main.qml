@@ -1,40 +1,41 @@
 import QtQuick
+import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Material
-import QtQuick.Layouts
+
+import com.example.singleton.dialogs
 
 ApplicationWindow {
     title: "Minimal QML6 Singleton Example"
     visible: true
-    minimumWidth: 600
+    minimumWidth: 700
+    width: 700
+    height: 700
 
     Material.theme: Material.Dark
 
     ColumnLayout {
-        anchors.fill: parent
+        anchors.left: parent.left
+        anchors.right: parent.right
+
+        Label {
+            Layout.alignment: Qt.AlignCenter
+            Layout.topMargin: height
+            text: "Two different dialogs in two different modules accessing the same data via SingletonInstance."
+        }
 
         Item {
             Layout.fillHeight: true
         }
-
-        Label {
-            Layout.fillWidth: true
-            Layout.fillHeight: false
-            horizontalAlignment: Qt.AlignHCenter
-            text: "Two different dialogs in two different modules accessing the same data via MySingleton."
-        }
-
         Button {
-            Layout.fillWidth: true
-            Layout.fillHeight: false
+            Layout.alignment: Qt.AlignCenter
             text: "Click me to set the Singleton properties"
 
             onClicked: setDialog.open()
         }
 
         Button {
-            Layout.fillWidth: true
-            Layout.fillHeight: false
+            Layout.alignment: Qt.AlignCenter
             text: "Click me to view the Singleton properties"
 
             onClicked: viewDialog.open()

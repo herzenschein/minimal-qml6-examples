@@ -3,15 +3,18 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 
-import QmlFromCpp
+import com.example.qmlelement.exports
 
 ApplicationWindow {
     id: root
     title: normal.title()
     visible: true
+    width: 600
+    height: 300
+
     Material.theme: Material.Dark
 
-    NormalCppQml {
+    CppQml {
         id: normal
         text: "Look, this is exposed via QML_ELEMENT and set from QML!"
     }

@@ -2,7 +2,7 @@
 #include <QObject>
 #include <QtQml>
 
-class NormalCppQml : public QObject
+class CppQml : public QObject
 {
     Q_OBJECT
 

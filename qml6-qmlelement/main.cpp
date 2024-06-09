@@ -7,7 +7,7 @@ int main(int argCount, char* argVector[])
     QGuiApplication qmlElementApp(argCount, argVector);
 
     QQmlApplicationEngine engine;
-    engine.load("qrc:/QmlFromCpp/main.qml");
+    engine.loadFromModule("com.example.qmlelement", "Main");
 
     qmlElementApp.exec();
 }

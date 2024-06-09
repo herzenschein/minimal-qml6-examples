@@ -1,14 +1,12 @@
 import QtQuick
+import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick.Controls.Material
-import QtQuick.Layouts
 
-//  Import isn't needed here because the singleton QML file
-//  was added in the same QML_FILES section in qt_add_qml_module.
-//import PragmaSingletonExample
+import com.example.pragmasingleton.singletons
 
 Dialog {
-
+    id: root
     ColumnLayout {
         anchors.fill: parent
 
@@ -43,6 +41,11 @@ Dialog {
             placeholderText: "Your favorite thing"
 
             onTextChanged: PragmaSingleton.thing = text
+        }
+        Button {
+            Layout.alignment: Qt.AlignCenter
+            text: "Confirm"
+            onClicked: root.close()
         }
     }
 }

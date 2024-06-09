@@ -3,10 +3,8 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Layouts
 
-// I don't get why QtCreator doesn't find these modules,
-// but it works.
-import TextRow
-import Strings
+import com.example.subdirectories.textrow
+import com.example.subdirectories.strings
 
 ApplicationWindow {
     title: "Minimal QML6 Subdirectories Example"
@@ -18,8 +16,8 @@ ApplicationWindow {
 
         Label {
             Layout.alignment: Qt.AlignCenter
-            Layout.topMargin: 15
-            text: "This window comes from <i>sub1/main.qml</i>"
+            Layout.topMargin: 30
+            text: "This window comes from <i>sub1/Main.qml</i>"
         }
 
         Item {
@@ -34,6 +32,7 @@ ApplicationWindow {
 
         TextRow {
             Layout.alignment: Qt.AlignCenter
+            Layout.fillWidth: true
             labelText: Strings.textForLabel
             fieldPlaceholder: Strings.textForField
         }

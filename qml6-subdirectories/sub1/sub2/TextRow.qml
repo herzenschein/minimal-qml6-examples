@@ -13,6 +13,7 @@ Frame {
             id: label
         }
         TextField {
+            Layout.fillWidth: true
             id: field
         }
     }

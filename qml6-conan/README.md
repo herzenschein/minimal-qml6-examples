@@ -17,16 +17,16 @@ Using Conan requires minimal changes to code, but some preparation before buildi
 
 How to run it:
 
-```
+```bash
 # Best practice: do all of this in a Python VENV
 python3 -m venv .
-source bin/active.sh
+source bin/activate.sh
 
 pip install conan
 
-cmake -B build
-cmake --build build
-DESTDIR=appdir cmake --install build
+cmake -B build -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=conan_provider.cmake -DCMAKE_BUILD_TYPE=Release
+cmake --build build --parallel
+cmake --install build --prefix staging # Or anywhere else you'd like, like /usr
 ```
 
 To build with ninja instead of make for improved compilation times, use `-D CMAKE_GENERATOR=Ninja`.

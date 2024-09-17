@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2024 Thiago Masato Costa Sueto <thiago.sueto@kde.org>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+version = 1
+SPDX-PackageName = "minimal-qml6-examples"
+SPDX-PackageSupplier = "Thiago Masato Costa Sueto <thiago.sueto@kde.org>"
+SPDX-PackageDownloadLocation = "https://codeberg.org/herzenschein/minimal-qml6-examples"
+
+[[annotations]]
+path = "**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024 Thiago Masato Costa Sueto <thiago.sueto@kde.org>"
+SPDX-License-Identifier = "GPL-3.0-or-later"
